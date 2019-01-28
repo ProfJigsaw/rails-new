@@ -21,51 +21,50 @@ RSpec.describe 'a playing card' do
 
   context 'equality' do
     it 'is equal to itself' do
-			subject = card(suit: :spades, rank: 4)
-			object =  card(suit: :spades, rank: 4)
+      subject = card(suit: :spades, rank: 4)
+      object =  card(suit: :spades, rank: 4)
 
-			raise unless subject == object
-		end
+      raise unless subject == object
+    end
 
-		it 'is hash equal to itself' do
-			subject = card(suit: :spades, rank: 4)
-			object =  card(suit: :spades, rank: 4)
+    it 'is hash equal to itself' do
+      subject = card(suit: :spades, rank: 4)
+      object =  card(suit: :spades, rank: 4)
 
-			raise unless Set.new([subject, object]).size == 1
-		end
+      raise unless Set.new([subject, object]).size == 1
+    end
 
-
-		describe 'comparing cards of differing suits' do
-			it 'is not equal' do
-				subject = card(suit: :spades, rank: 4)
-				object =  card(suit: :hearts, rank: 4)
-
-				raise unless subject != object
-			end
-
-			it 'is not hash equal' do
-				subject = card(suit: :spades, rank: 4)
-				object =  card(suit: :hearts, rank: 4)
-
-				raise unless Set.new([subject, object]).size == 2
-			end
-		end
-
-		describe 'comparing to a card of different rank' do
+    describe 'comparing cards of differing suits' do
       it 'is not equal' do
-				subject = card(suit: :spades, rank: 4)
-				object =  card(suit: :spades, rank: 6)
+        subject = card(suit: :spades, rank: 4)
+        object =  card(suit: :hearts, rank: 4)
 
-				raise unless subject != object
-			end
+        raise unless subject != object
+      end
 
-			it 'is not hash equal' do
-				subject = card(suit: :spades, rank: 4)
-				object =  card(suit: :spades, rank: 5)
+      it 'is not hash equal' do
+        subject = card(suit: :spades, rank: 4)
+        object =  card(suit: :hearts, rank: 4)
 
-				raise unless Set.new([subject, object]).size == 2
-			end
-		end
+        raise unless Set.new([subject, object]).size == 2
+      end
+    end
+
+    describe 'comparing to a card of different rank' do
+      it 'is not equal' do
+        subject = card(suit: :spades, rank: 4)
+        object =  card(suit: :spades, rank: 6)
+
+        raise unless subject != object
+      end
+
+      it 'is not hash equal' do
+        subject = card(suit: :spades, rank: 4)
+        object =  card(suit: :spades, rank: 5)
+
+        raise unless Set.new([subject, object]).size == 2
+      end
+    end
   end
 
   describe 'a jack' do
