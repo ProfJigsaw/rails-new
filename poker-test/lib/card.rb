@@ -1,4 +1,6 @@
+# Card class
 class Card
+  attr_reader :suit, :rank
   def self.build(suit, rank)
     new(suit: suit, rank: rank)
   end
@@ -8,19 +10,11 @@ class Card
   def initialize(suit:, rank:)
     @suit = suit
     @rank = case rank
-    when :jack then 11
-    when :queen then 12
-    when :king then 13
-    else rank
-    end
-  end
-
-  def suit
-    @suit
-  end
-
-  def rank
-    @rank
+            when :jack then 11
+            when :queen then 12
+            when :king then 13
+            else rank
+            end
   end
 
   def ==(other)
