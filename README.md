@@ -1,0 +1,1 @@
+This repository will serve as a container for all my ruby on rails test projects
