@@ -8,12 +8,15 @@ class AchievementsController < ApplicationController
     @achievement = Achievement.new(achievement_params)
     if @achievement.save
       redirect_to root_path, notice: 'Achievement has been created'
+    else
+      render :new
     end
   end
 
   private
 
   def achievement_params
-    params.require(:achievement).permit(:title, :description, :privacy, :cover_image, :featured)
+    params.require(:achievement)
+          .permit(:title, :description, :privacy, :cover_image, :featured)
   end
 end
